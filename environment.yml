@@ -1,0 +1,7 @@
+name: /srv/conda/envs/notebook
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab-git
+prefix: /srv/conda/envs/notebook
