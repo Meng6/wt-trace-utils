@@ -37,7 +37,7 @@ def process_output(dir1, dir2):
     return update, delete, add
 
 @cli.command()
-@click.option('--trp', '-p', required=True, type=str, default=sys.stdin, help='Name of the Trusted Research Performance (TRP)')
+@click.option('--trp', '-p', required=True, type=str, help='Name of the Trusted Research Performance (TRP)')
 def diff(trp):
     """Check differences between pre-TRP and post-TRP"""
     # Before executing the given TRP
@@ -57,7 +57,7 @@ def diff(trp):
         print("These files were updated: ", out_update)
 
 @cli.command()
-@click.option('--trp', '-p', required=True, type=str, default=sys.stdin, help='Name of the Trusted Research Performance (TRP)')
+@click.option('--trp', '-p', required=True, type=str, help='Name of the Trusted Research Performance (TRP)')
 def sync_workspace(trp):
     """Sync the post-TRP folder to current workspace"""
     # Current working space
@@ -66,7 +66,7 @@ def sync_workspace(trp):
     dir2 = f"../runs/{trp}/workspace/"
 
     # Compare two directories
-    out_dir1_files, out_dir2_files = compare_directories(dir1, dir2, ep=EXCLUDED_FILES)
+    out_dir1_files, out_dir2_files = compare_directories(dir1, dir2, ef=EXCLUDED_FILES)
     out_update, out_delete, out_add = process_output(out_dir1_files, out_dir2_files)
     # Combine out_update and out_add
     out_update.update(out_add)
