@@ -11,4 +11,4 @@ dynamic = ["dependencies"]
 dependencies = {file = ["requirements.txt"]}
 
 [project.scripts]
-wt_trace_utils = "wt_trace_utils.__main__:cli"
+wt-trace-utils = "wt_trace_utils.__main__:cli"
